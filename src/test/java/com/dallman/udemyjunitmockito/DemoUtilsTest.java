@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
+
+@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
 public class DemoUtilsTest {
 
     DemoUtils demoUtils;
@@ -31,6 +33,7 @@ public class DemoUtilsTest {
     }
 
     @Test
+    @DisplayName("Testing for equals and not equals")
     void testEqualsAndNotEquals() {
         System.out.println("Running testEqualsAndNotEquals()");
         int expected = 6;
