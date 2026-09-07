@@ -1,8 +1,12 @@
 package com.dallman.udemyjunitmockito;
 
+import java.util.List;
+
 public class DemoUtils {
     private String academy ="Academy";
     private String academyDuplicate = academy;
+    private String[] firstThreeLettersOfAlphabet = {"A", "B", "C"};
+    private List<String> academyInList = List.of("JUnit", "Mockito", "MockMvc");
 
     public static void main(String[] args) {
 
@@ -49,5 +53,21 @@ public class DemoUtils {
 
     public void setAcademyDuplicate(String academyDuplicate) {
         this.academyDuplicate = academyDuplicate;
+    }
+
+    public String[] getFirstThreeLettersOfAlphabet() {
+        return firstThreeLettersOfAlphabet;
+    }
+
+    public void setFirstThreeLettersOfAlphabet(String[] firstThreeLettersOfAlphabet) {
+        this.firstThreeLettersOfAlphabet = firstThreeLettersOfAlphabet;
+    }
+
+    public List<String> getAcademyInList() {
+        return academyInList;
+    }
+
+    public void setAcademyInList(List<String> academyInList) {
+        this.academyInList = academyInList;
     }
 }
