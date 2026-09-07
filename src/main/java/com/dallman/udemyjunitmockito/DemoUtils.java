@@ -1,6 +1,8 @@
 package com.dallman.udemyjunitmockito;
 
 public class DemoUtils {
+    private String academy ="Academy";
+    private String academyDuplicate = academy;
 
     public static void main(String[] args) {
 
@@ -15,11 +17,7 @@ public class DemoUtils {
     }
 
     public boolean isGreater(int a, int b) {
-        if (a > b) {
-            return true;
-        } else {
-            return false;
-        }
+        return a > b;
     }
 
     public Object checkNull(Object object) {
@@ -27,5 +25,29 @@ public class DemoUtils {
             return object;
         }
         return null;
+    }
+
+    public Object isSame(Object object1, Object object2) {
+        if (object1 == object2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String getAcademy() {
+        return academy;
+    }
+
+    public void setAcademy(String academy) {
+        this.academy = academy;
+    }
+
+    public String getAcademyDuplicate() {
+        return academyDuplicate;
+    }
+
+    public void setAcademyDuplicate(String academyDuplicate) {
+        this.academyDuplicate = academyDuplicate;
     }
 }

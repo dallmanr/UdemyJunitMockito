@@ -61,4 +61,19 @@ public class DemoUtilsTest {
         assertNull(demoUtils.checkNull(expected), "Object should be null");
         assertNotNull(demoUtils.checkNull(notNull), "Object should NOT be null");
     }
+
+    @Test
+    void testAssertSameNotSame() {
+        System.out.println("Running testAssertSame()");
+        String str = "Not the same!";
+        assertSame(demoUtils.getAcademy(), demoUtils.getAcademyDuplicate(), "Should be the same object!");
+        assertNotSame(str, demoUtils.getAcademy(), "Should NOT be the same object!");
+    }
+
+    @Test
+    void testAssertTrue() {
+        System.out.println("Running testAssertTrue()");
+        assertTrue(demoUtils.isGreater(10,1), "10 should be greater than 1");
+        assertFalse(demoUtils.isGreater(2,10), "2 should NOT be greater than 10");
+    }
 }
