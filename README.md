@@ -17,8 +17,9 @@ Here I will list any resources I have used outside of Udemy during this course.
 
 # Tools used
 
-|   Tool                            |
-| --------                          |
-| IntelliJ Community Edition      |
-| Git hub desktop                   |
-|                                   |
+|   Tool                            | Info     | 
+| --------                          | -------- |
+| IntelliJ Community Edition        |          |
+| Git hub desktop                   |          |
+| Postgres                          |  I am running this in Portainer on my Raspberry Pi Model 3 as I sometimes switch between Linux (CachyOs) and Windows so this way I always have a db available |
+|                                   |          |
