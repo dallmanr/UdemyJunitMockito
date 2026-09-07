@@ -9,11 +9,11 @@ One element of the project will include the use of JUnit and Mockito, which I am
 # Resources
 Here I will list any resources I have used outside of Udemy during this course.
 
-| Resource    | Link    |
-| --------    | ------- |
-|             |         |
-|             |         |
-|             |         |
+| Resource              | Link                                              |
+| --------              | -------                                           |
+| JUnit User Guide      | https://docs.junit.org/6.1.3/overview.html        |
+|                       |                                                   |
+|                       |                                                   |
 
 # Tools used
 
