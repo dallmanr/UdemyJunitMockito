@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
+import java.time.Duration;
+import java.util.List;
+
 
 @DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
 public class DemoUtilsTest {
@@ -13,6 +16,7 @@ public class DemoUtilsTest {
     @BeforeAll
     static void beforeAll() {
         System.out.println("Executing @BeforeAll beforeAll()");
+        System.out.println("---------------------------------");
     }
 
     @BeforeEach
@@ -29,6 +33,7 @@ public class DemoUtilsTest {
 
     @AfterAll
     static void afterAll() {
+        System.out.println("---------------------------------");
         System.out.println("Executing @AfterAll afterAll()");
     }
 
@@ -71,9 +76,49 @@ public class DemoUtilsTest {
     }
 
     @Test
+    @DisplayName("Testing True and False")
     void testAssertTrue() {
         System.out.println("Running testAssertTrue()");
         assertTrue(demoUtils.isGreater(10,1), "10 should be greater than 1");
         assertFalse(demoUtils.isGreater(2,10), "2 should NOT be greater than 10");
+    }
+
+    @Test
+    @DisplayName("Testing array equals")
+    void  testArrayEquals() {
+        System.out.println("Running testArrayEquals()");
+
+        String[] expected = {"A", "B", "C"};
+        assertArrayEquals(expected, demoUtils.getFirstThreeLettersOfAlphabet(), "First three letters should be equal");
+
+    }
+
+    @Test
+    @DisplayName("Testing iterables equals")
+    void testIterablesEquals() {
+        System.out.println("Running testIterables()");
+        assertIterableEquals(List.of("JUnit", "Mockito", "MockMvc"), demoUtils.getAcademyInList(), "Iterables should be equal");
+    }
+
+    @Test
+    @DisplayName("Testing lines match")
+    void testLinesMatch() {
+        System.out.println("Running testLinesMatch()");
+        assertLinesMatch(List.of("JUnit", "Mockito", "MockMvc"), demoUtils.getAcademyInList(), "Lines should match");
+    }
+
+    @Test
+    @DisplayName("Testing throwing and not throwing of an Exception")
+    void testThrowingOfException() {
+        System.out.println("Running testThrowingOfException()");
+        assertThrows(Exception.class , () -> {demoUtils.throwException(-1);}, "Should throw an exception when < 0");
+        assertDoesNotThrow(() -> {demoUtils.throwException(5);}, "Should throw an exception when < 0");
+    }
+
+    @Test
+    @DisplayName("Testing execution time")
+    void testExecutionTime() {
+        System.out.println("Running testExecutionTime()");
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {demoUtils.timeout(2);}, "Should execute in <= 3 seconds");
     }
 }

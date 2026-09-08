@@ -1,6 +1,8 @@
 package com.dallman.udemyjunitmockito;
 
+import java.sql.Time;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class DemoUtils {
     private String academy ="Academy";
@@ -69,5 +71,18 @@ public class DemoUtils {
 
     public void setAcademyInList(List<String> academyInList) {
         this.academyInList = academyInList;
+    }
+
+    public String throwException(int a) throws Exception {
+        if (a<0) {
+            throw new Exception("Value should be > 0");
+        }
+        return "Value is >= 0";
+    }
+
+    public void timeout(int waitTime) throws InterruptedException {
+        System.out.println("Sleeping for + " + waitTime + " seconds");
+        Thread.sleep(waitTime * 1000);
+        System.out.println("Waking");
     }
 }
