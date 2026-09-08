@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 import java.time.Duration;
 import java.util.List;
 
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
 public class DemoUtilsTest {
 
@@ -38,6 +38,7 @@ public class DemoUtilsTest {
     }
 
     @Test
+    @Order(1)
     @DisplayName("Testing for equals and not equals")
     void testEqualsAndNotEquals() {
         System.out.println("Running testEqualsAndNotEquals()");
@@ -57,6 +58,7 @@ public class DemoUtilsTest {
     }
 
     @Test
+    @Order(10)
     void testNullAndNotNull() {
         System.out.println("Running testNullAndNotNull()");
         String expected = null;
@@ -68,6 +70,7 @@ public class DemoUtilsTest {
     }
 
     @Test
+    @Order(2)
     void testAssertSameNotSame() {
         System.out.println("Running testAssertSame()");
         String str = "Not the same!";
@@ -77,6 +80,7 @@ public class DemoUtilsTest {
 
     @Test
     @DisplayName("Testing True and False")
+    @Order(6)
     void testAssertTrue() {
         System.out.println("Running testAssertTrue()");
         assertTrue(demoUtils.isGreater(10,1), "10 should be greater than 1");
@@ -85,6 +89,7 @@ public class DemoUtilsTest {
 
     @Test
     @DisplayName("Testing array equals")
+    @Order(11)
     void  testArrayEquals() {
         System.out.println("Running testArrayEquals()");
 
@@ -95,6 +100,7 @@ public class DemoUtilsTest {
 
     @Test
     @DisplayName("Testing iterables equals")
+    @Order(3)
     void testIterablesEquals() {
         System.out.println("Running testIterables()");
         assertIterableEquals(List.of("JUnit", "Mockito", "MockMvc"), demoUtils.getAcademyInList(), "Iterables should be equal");
@@ -102,6 +108,7 @@ public class DemoUtilsTest {
 
     @Test
     @DisplayName("Testing lines match")
+    @Order(5)
     void testLinesMatch() {
         System.out.println("Running testLinesMatch()");
         assertLinesMatch(List.of("JUnit", "Mockito", "MockMvc"), demoUtils.getAcademyInList(), "Lines should match");
@@ -109,6 +116,7 @@ public class DemoUtilsTest {
 
     @Test
     @DisplayName("Testing throwing and not throwing of an Exception")
+    @Order(4)
     void testThrowingOfException() {
         System.out.println("Running testThrowingOfException()");
         assertThrows(Exception.class , () -> {demoUtils.throwException(-1);}, "Should throw an exception when < 0");
@@ -117,6 +125,7 @@ public class DemoUtilsTest {
 
     @Test
     @DisplayName("Testing execution time")
+    @Order(20)
     void testExecutionTime() {
         System.out.println("Running testExecutionTime()");
         assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {demoUtils.timeout(2);}, "Should execute in <= 3 seconds");
