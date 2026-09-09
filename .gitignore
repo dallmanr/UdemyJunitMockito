@@ -33,6 +33,7 @@ build/
 .vscode/
 
 ### CUSTOM ##
-src/main/resources/.env.properties
-.env.*
+src/main/resources/.env-production.properties
+.env.
+.env-*
 !.env.example

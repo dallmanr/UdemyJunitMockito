@@ -1,11 +1,15 @@
 package com.dallman.udemyjunitmockito;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 import java.time.Duration;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
@@ -46,10 +50,10 @@ public class DemoUtilsTest {
         int unexpected = 7;
 
         // Step 2: Call the method we want to test
-        int result = demoUtils.addTwoNumbers(3,3);
+        int result = demoUtils.addTwoNumbers(3, 3);
 
         // Step 2 & 3: Call our test method within the assertion itself and then assert the value
-        assertEquals(expected, demoUtils.addTwoNumbers(3,3), "3 + 3 must be 6");
+        assertEquals(expected, demoUtils.addTwoNumbers(3, 3), "3 + 3 must be 6");
 
         // Step 3: Assert the value and verify the result - Without calling test method within the assertion
         assertEquals(expected, result, "3+3 must be 6");
@@ -83,14 +87,14 @@ public class DemoUtilsTest {
     @Order(6)
     void testAssertTrue() {
         System.out.println("Running testAssertTrue()");
-        assertTrue(demoUtils.isGreater(10,1), "10 should be greater than 1");
-        assertFalse(demoUtils.isGreater(2,10), "2 should NOT be greater than 10");
+        assertTrue(demoUtils.isGreater(10, 1), "10 should be greater than 1");
+        assertFalse(demoUtils.isGreater(2, 10), "2 should NOT be greater than 10");
     }
 
     @Test
     @DisplayName("Testing array equals")
     @Order(11)
-    void  testArrayEquals() {
+    void testArrayEquals() {
         System.out.println("Running testArrayEquals()");
 
         String[] expected = {"A", "B", "C"};
@@ -119,8 +123,12 @@ public class DemoUtilsTest {
     @Order(4)
     void testThrowingOfException() {
         System.out.println("Running testThrowingOfException()");
-        assertThrows(Exception.class , () -> {demoUtils.throwException(-1);}, "Should throw an exception when < 0");
-        assertDoesNotThrow(() -> {demoUtils.throwException(5);}, "Should throw an exception when < 0");
+        assertThrows(Exception.class, () -> {
+            demoUtils.throwException(-1);
+        }, "Should throw an exception when < 0");
+        assertDoesNotThrow(() -> {
+            demoUtils.throwException(5);
+        }, "Should throw an exception when < 0");
     }
 
     @Test
@@ -128,13 +136,41 @@ public class DemoUtilsTest {
     @Order(20)
     void testExecutionTime() {
         System.out.println("Running testExecutionTime()");
-        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {demoUtils.timeout(2);}, "Should execute in <= 3 seconds");
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            demoUtils.timeout(2);
+        }, "Should execute in <= 3 seconds");
     }
 
     @Test
     @DisplayName("Testing multiplication of numbers")
     public void testMultiplicationOfNumbers() {
         System.out.println("Running testMultiplicationOfNumbers()");
-        assertEquals(12, demoUtils.multiplyTwoNumbers(4,3), "Should be 12");
+        assertEquals(12, demoUtils.multiplyTwoNumbers(4, 3), "Should be 12");
+    }
+
+    @Test
+    @DisplayName("Should only run on Linux")
+    @EnabledOnOs(OS.LINUX)
+    void testOnLinux() {
+        System.out.println("Running testOnLinux()");
+    }
+
+    @Test
+    @DisplayName("Run in UAT")
+    @EnabledIfEnvironmentVariable(named = "ENVIRONMENT", matches = "UAT")
+    void testInUat() {
+        System.out.println("Running testInUat()");
+    }
+
+    @Test
+    @EnabledIfSystemProperty(named="USER", matches="RICH")
+    void runForRich() {
+        System.out.println("Running testRunForRich()");
+    }
+
+    @Test
+    @Disabled("Disabled until ticket #x is resolved")
+    void disabledTest() {
+        System.out.println("Running testDisabled()");
     }
 }
