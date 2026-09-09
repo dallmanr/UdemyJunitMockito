@@ -13,7 +13,7 @@ Here I will list any resources I have used outside of Udemy during this course.
 | --------              | -------                                           |
 | JUnit User Guide      | https://docs.junit.org/6.1.3/overview.html        |
 | IntelliJ IDE Testing  | https://jetbrains.com/help/idea/tests-in-ide.html |
-|                       |                                                   |
+| JaCoCo                | https://www.jacoco.org/jacoco/trunk/doc/          |
 
 # Tools used
 
