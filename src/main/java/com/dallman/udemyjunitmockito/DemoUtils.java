@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class DemoUtils {
-    private String academy ="Academy";
+    private String academy = "Academy";
     private String academyDuplicate = academy;
     private String[] firstThreeLettersOfAlphabet = {"A", "B", "C"};
     private List<String> academyInList = List.of("JUnit", "Mockito", "MockMvc");
@@ -45,36 +45,23 @@ public class DemoUtils {
         return academy;
     }
 
-    public void setAcademy(String academy) {
-        this.academy = academy;
-    }
 
     public String getAcademyDuplicate() {
         return academyDuplicate;
     }
 
-    public void setAcademyDuplicate(String academyDuplicate) {
-        this.academyDuplicate = academyDuplicate;
-    }
 
     public String[] getFirstThreeLettersOfAlphabet() {
         return firstThreeLettersOfAlphabet;
     }
 
-    public void setFirstThreeLettersOfAlphabet(String[] firstThreeLettersOfAlphabet) {
-        this.firstThreeLettersOfAlphabet = firstThreeLettersOfAlphabet;
-    }
 
     public List<String> getAcademyInList() {
         return academyInList;
     }
 
-    public void setAcademyInList(List<String> academyInList) {
-        this.academyInList = academyInList;
-    }
-
     public String throwException(int a) throws Exception {
-        if (a<0) {
+        if (a < 0) {
             throw new Exception("Value should be > 0");
         }
         return "Value is >= 0";

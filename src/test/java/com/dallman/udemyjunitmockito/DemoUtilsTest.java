@@ -130,4 +130,11 @@ public class DemoUtilsTest {
         System.out.println("Running testExecutionTime()");
         assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {demoUtils.timeout(2);}, "Should execute in <= 3 seconds");
     }
+
+    @Test
+    @DisplayName("Testing multiplication of numbers")
+    public void testMultiplicationOfNumbers() {
+        System.out.println("Running testMultiplicationOfNumbers()");
+        assertEquals(12, demoUtils.multiplyTwoNumbers(4,3), "Should be 12");
+    }
 }
