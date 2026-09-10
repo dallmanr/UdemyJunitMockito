@@ -33,4 +33,12 @@ class FizzBuzzTest {
         assertEquals(expected, FizzBuzz.compute(15), "Should return FizzBuzz");
     }
 
+    @Test
+    @DisplayName("Testing n !/ 3 or 5")
+    @Order(3)
+    void testNotDivisibleByFifteen() {
+        String expected = "16";
+        assertEquals(expected, FizzBuzz.compute(16), "Should return n");
+    }
+
 }
