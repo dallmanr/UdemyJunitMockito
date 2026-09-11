@@ -13,6 +13,7 @@ public class UdemyJunitMockitoApplication {
         SpringApplication.run(UdemyJunitMockitoApplication.class, args);
     }
 
+    //We don't need to add the @Component annotation to CollegeStudent because we manually define the bean here
     @Bean(name="collegeStudent")
     @Scope(value="prototype")
     CollegeStudent getCollegeStudent() {return new CollegeStudent();}

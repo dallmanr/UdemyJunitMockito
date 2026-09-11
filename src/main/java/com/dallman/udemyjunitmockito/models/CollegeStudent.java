@@ -1,5 +1,6 @@
 package com.dallman.udemyjunitmockito.models;
 
+//Colleage student is not marked as a @Component but in our application we manually create a bean
 public class CollegeStudent implements Student{
 
     private String firstName;
