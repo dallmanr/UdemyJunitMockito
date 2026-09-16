@@ -60,4 +60,17 @@ public class MockAnnotationTest {
         // 3b. Verify the method call was made 3x during the test
         verify(applicationDAO, times(1)).addGradeResultsForSingleClass(studentGrades.getMathGradeResults());
     }
+
+    @Test
+    @DisplayName("Find GPA")
+    void assertEqualsTestFindGPA() {
+        // 1. Create the expectation - When findGradePointAverage is called, then return 88.31
+        when(applicationDAO.findGradePointAverage(studentGrades.getMathGradeResults())).thenReturn(88.31);
+
+        // 2. Assert
+        assertEquals(88.31, applicationService.findGradePointAverage(studentGrades.getMathGradeResults()));
+
+        // 3. Verify the method was called at least once
+        verify(applicationDAO, times(1)).findGradePointAverage(studentGrades.getMathGradeResults());
+    }
 }
