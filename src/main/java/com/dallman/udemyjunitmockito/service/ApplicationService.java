@@ -9,18 +9,18 @@ import java.util.List;
 public class ApplicationService {
 
     @Autowired
-    private ApplicationDAO applicationDao;
+    private ApplicationDAO applicationDAO;
 
     public double addGradeResultsForSingleClass(List<Double> numbers) {
-        return applicationDao.addGradeResultsForSingleClass(numbers);
+        return applicationDAO.addGradeResultsForSingleClass(numbers);
     }
 
     public double findGradePointAverage (List<Double> grades ) {
-        return applicationDao.findGradePointAverage(grades);
+        return applicationDAO.findGradePointAverage(grades);
     }
 
     public Object checkNull(Object obj) {
-        return applicationDao.checkNull(obj);
+        return applicationDAO.checkNull(obj);
     }
 
 }
