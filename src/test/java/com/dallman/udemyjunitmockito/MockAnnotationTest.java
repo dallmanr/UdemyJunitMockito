@@ -18,10 +18,10 @@ import static org.mockito.Mockito.*;
 @SpringBootTest(classes = UdemyJunitMockitoApplication.class)
 public class MockAnnotationTest {
 
-    @MockitoBean // Create our Test Double
+    @MockitoBean // Create our Test Double - Adds the given bean to the app context
     private ApplicationDAO applicationDAO;
 
-    @Autowired // Inject our Mock dependencies. Application Service makes use of ApplicationDAO
+    @Autowired // Inject the service into our app context
     private ApplicationService applicationService;
 
     @Autowired
