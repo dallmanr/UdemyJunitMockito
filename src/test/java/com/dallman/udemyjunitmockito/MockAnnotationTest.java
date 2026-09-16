@@ -7,12 +7,14 @@ import com.dallman.udemyjunitmockito.service.ApplicationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.DoNotMock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest(classes = UdemyJunitMockitoApplication.class)
@@ -72,5 +74,18 @@ public class MockAnnotationTest {
 
         // 3. Verify the method was called at least once
         verify(applicationDAO, times(1)).findGradePointAverage(studentGrades.getMathGradeResults());
+    }
+
+    @Test
+    @DisplayName("Check Not Null")
+    void testAssertNotNull() {
+        // 1. Create the expectation - Checking student grades is not null
+        when(applicationDAO.checkNull(studentGrades.getMathGradeResults())).thenReturn(true);
+
+        // 2. Assert
+        assertNotNull(applicationService.checkNull(studentOne.getGrades().getMathGradeResults()), "Object should not be null");
+
+        // 3. Verify method was called at least once
+        verify(applicationDAO, times(1)).checkNull(studentGrades.getMathGradeResults());
     }
 }
