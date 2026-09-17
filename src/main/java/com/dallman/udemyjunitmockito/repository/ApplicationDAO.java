@@ -1,4 +1,4 @@
-package com.dallman.udemyjunitmockito.dao;
+package com.dallman.udemyjunitmockito.repository;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

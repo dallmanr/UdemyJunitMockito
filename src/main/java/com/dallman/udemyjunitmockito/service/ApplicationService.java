@@ -1,6 +1,6 @@
 package com.dallman.udemyjunitmockito.service;
 
-import com.dallman.udemyjunitmockito.dao.ApplicationDAO;
+import com.dallman.udemyjunitmockito.repository.ApplicationDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
