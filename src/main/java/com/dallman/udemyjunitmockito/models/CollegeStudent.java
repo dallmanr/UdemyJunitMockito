@@ -3,6 +3,7 @@ package com.dallman.udemyjunitmockito.models;
 //Colleage student is not marked as a @Component but in our application we manually create a bean
 public class CollegeStudent implements Student{
 
+    private int id;
     private String firstName;
     private String lastName;
     private String emailAddress;
@@ -23,6 +24,14 @@ public class CollegeStudent implements Student{
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLastName() {
@@ -47,6 +56,11 @@ public class CollegeStudent implements Student{
 
     public void setGrades(StudentGrades grades) {
         this.grades = grades;
+    }
+
+
+    private String getFirstNameAndId() {
+        return getFirstName() + " " + getId();
     }
 
     @Override
