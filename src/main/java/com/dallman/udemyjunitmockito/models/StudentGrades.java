@@ -3,54 +3,62 @@ package com.dallman.udemyjunitmockito.models;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 @Component
 public class StudentGrades {
 
-    List<Double> mathGradeResults;
+    private List<Grade> mathGradeResults;
 
-    public StudentGrades() {
-        System.out.println("StudentGrades constructor");
-    }
+    private List<Grade> scienceGradeResults;
 
-    public StudentGrades(List<Double> mathGradeResults) {
-        this.mathGradeResults = mathGradeResults;
-    }
+    private List<Grade> historyGradeResults;
 
-    public double addGradeResultsForSingleClass(List<Double> grades) {
+    public StudentGrades() {}
+
+    public double addGradeResultsForSingleClass(List<Grade> grades) {
         double result = 0;
-        for (Double grade : grades) {
-            result += grade;
+        for (Grade i : grades) {
+            result += i.getGrade();
         }
         return result;
     }
 
-    public double findGradePointAverage(List<Double> grades) {
+    public double findGradePointAverage (List<Grade> grades ) {
         int lengthOfGrades = grades.size();
         double sum = addGradeResultsForSingleClass(grades);
         double result = sum / lengthOfGrades;
 
+        // add a round function
         BigDecimal resultRound = BigDecimal.valueOf(result);
-        resultRound = resultRound.setScale(2, BigDecimal.ROUND_HALF_UP);
-
+        resultRound = resultRound.setScale(2, RoundingMode.HALF_UP);
         return resultRound.doubleValue();
+
     }
 
-    public Boolean isGradeGreater(double gradeOne, double gradeTwo) {
-        return gradeOne > gradeTwo;
-    }
-
-    public Object checkNull(Object obj) {
-        return obj != null ? obj : null;
-    }
-
-    public List<Double> getMathGradeResults() {
+    public List<Grade> getMathGradeResults() {
         return mathGradeResults;
     }
 
-    public void setMathGradeResults(List<Double> mathGradeResults) {
+    public void setMathGradeResults(List<Grade> mathGradeResults) {
         this.mathGradeResults = mathGradeResults;
+    }
+
+    public List<Grade> getScienceGradeResults() {
+        return scienceGradeResults;
+    }
+
+    public void setScienceGradeResults(List<Grade> scienceGradeResults) {
+        this.scienceGradeResults = scienceGradeResults;
+    }
+
+    public List<Grade> getHistoryGradeResults() {
+        return historyGradeResults;
+    }
+
+    public void setHistoryGradeResults(List<Grade> historyGradeResults) {
+        this.historyGradeResults = historyGradeResults;
     }
 
     @Override

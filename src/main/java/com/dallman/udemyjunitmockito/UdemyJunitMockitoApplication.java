@@ -14,21 +14,4 @@ public class UdemyJunitMockitoApplication {
     public static void main(String[] args) {
         SpringApplication.run(UdemyJunitMockitoApplication.class, args);
     }
-
-    //We don't need to add the @Component annotation to CollegeStudent because we manually define the bean here
-    @Bean(name="collegeStudent")
-    @Scope(value="prototype")
-    CollegeStudent getCollegeStudent() {return new CollegeStudent();}
-
-    /* New for Section 2.2 */
-    @Bean(name = "applicationExample")
-    ApplicationService getApplicationService() {
-        return new ApplicationService();
-    }
-
-    /* New for Section 2.2 */
-    @Bean(name = "applicationDAO")
-    ApplicationDAO getApplicationDAO() {
-        return new ApplicationDAO();
-    }
 }

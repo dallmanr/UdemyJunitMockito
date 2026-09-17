@@ -1,29 +1,28 @@
 package com.dallman.udemyjunitmockito.models;
 
-//Colleage student is not marked as a @Component but in our application we manually create a bean
-public class CollegeStudent implements Student{
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="student")
+public class CollegeStudent implements Student{
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
-    private String firstName;
-    private String lastName;
+    @Column
+    private String firstname;
+    @Column
+    private String lastname;
+    @Column(name="email_address")
     private String emailAddress;
-    private StudentGrades grades;
 
     public CollegeStudent() {
+
     }
 
-    public CollegeStudent(String firstName, String lastName, String emailAddress) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public CollegeStudent(String firstname, String lastname, String emailAddress) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.emailAddress = emailAddress;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public int getId() {
@@ -34,12 +33,20 @@ public class CollegeStudent implements Student{
         this.id = id;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getEmailAddress() {
@@ -50,35 +57,22 @@ public class CollegeStudent implements Student{
         this.emailAddress = emailAddress;
     }
 
-    public StudentGrades getGrades() {
-        return grades;
-    }
 
-    public void setGrades(StudentGrades grades) {
-        this.grades = grades;
-    }
-
-
-    private String getFirstNameAndId() {
-        return getFirstName() + " " + getId();
+    public String getFullName() {
+        return getFirstname() + " " + getLastname();
     }
 
     @Override
     public String toString() {
         return "CollegeStudent{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 '}';
     }
 
-    @Override
     public String studentInformation() {
         return getFullName() + " " + getEmailAddress();
-    }
-
-    @Override
-    public String getFullName() {
-        return getFirstName() + " " + getLastName();
     }
 }
